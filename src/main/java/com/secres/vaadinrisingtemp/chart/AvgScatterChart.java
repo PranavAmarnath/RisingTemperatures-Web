@@ -31,7 +31,7 @@ public class AvgScatterChart extends VerticalLayout implements ChartDisplay {
     public void createAndShowChart() {
         chart = new Chart();
         Configuration conf = chart.getConfiguration();
-        conf.getTitle().setText("Global Average Yearly Temperature (1850-2015)");
+        conf.getTitle().setText("Global Average Yearly Land Temperature (1750-2015)");
         conf.getSubTitle().setText("Data from Berkeley Earth");
         //chart.setTimeline(true);
         //chart.setHeight("2000px"); // filler for pack later on

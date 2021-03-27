@@ -44,20 +44,13 @@ public class MainView extends AppLayout {
         Image img = new Image("https://raw.githubusercontent.com/PranavAmarnath/RisingTemperatures/master/src/main/resources/gear.png", "Rising Temperatures");
         img.setHeight("40px");
         Button iconButton = new Button(img);
-        iconButton.addClickListener(e -> {
-            iconButton.getUI().ifPresent(ui -> ui.navigate(""));
-        });
-
-        Tab homeTab = new Tab("Home");
-        HomeView homeView = new HomeView();
-        Div homePage = new Div(homeView);
-        homePage.setVisible(true);
-        setContent(homePage);
+        iconButton.addClickListener(e -> iconButton.getUI().ifPresent(ui -> ui.navigate("")));
 
         Tab tableTab = new Tab("Table");
         TableView tableView = new TableView();
         Div tablePage = new Div(tableView);
-        tablePage.setVisible(false);
+        tablePage.setVisible(true);
+        setContent(tablePage);
 
         Tab chartsTab = new Tab("Charts");
         WelcomeScreen welcomeScreenCharts = new WelcomeScreen();
@@ -65,11 +58,10 @@ public class MainView extends AppLayout {
         chartsPage.setVisible(false);
 
         Map<Tab, Component> tabsToPages = new HashMap<>();
-        tabsToPages.put(homeTab, homePage);
         tabsToPages.put(tableTab, tablePage);
         tabsToPages.put(chartsTab, chartsPage);
 
-        Tabs tabs = new Tabs(homeTab, tableTab, chartsTab);
+        Tabs tabs = new Tabs(tableTab, chartsTab);
         tabs.addSelectedChangeListener(e -> {
             tabsToPages.values().forEach(page -> page.setVisible(false));
             Component selectedPage = tabsToPages.get(tabs.getSelectedTab());
