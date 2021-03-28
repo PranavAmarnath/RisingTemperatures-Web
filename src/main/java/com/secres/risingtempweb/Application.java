@@ -1,4 +1,4 @@
-package com.secres.vaadinrisingtemp;
+package com.secres.risingtempweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

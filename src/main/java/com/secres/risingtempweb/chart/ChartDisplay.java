@@ -1,4 +1,4 @@
-package com.secres.vaadinrisingtemp.chart;
+package com.secres.risingtempweb.chart;
 
 public interface ChartDisplay {
 

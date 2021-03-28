@@ -1,4 +1,4 @@
-package com.secres.vaadinrisingtemp;
+package com.secres.risingtempweb;
 
 import com.vaadin.flow.theme.AbstractTheme;
 import com.vaadin.testbench.ScreenshotOnFailureRule;

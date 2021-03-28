@@ -1,26 +1,26 @@
-package com.secres.vaadinrisingtemp.chart;
+package com.secres.risingtempweb.chart;
 
-import com.secres.vaadinrisingtemp.Model;
-import com.secres.vaadinrisingtemp.TableView;
+import com.secres.risingtempweb.Model;
+import com.secres.risingtempweb.TableView;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
-@Route("charts/seasons/december")
-@PageTitle("Land Temperature in December")
-public class DecemberSeasonChart extends VerticalLayout {
+@Route("charts/seasons/march")
+@PageTitle("Land Temperature in March")
+public class MarchSeasonChart extends VerticalLayout {
 
     private final Model globalModel = TableView.getModel();
 
-    public DecemberSeasonChart() {
+    public MarchSeasonChart() {
         if(globalModel == null) {
             add(new RouterLink("Upload Table First", TableView.class));
         }
         else {
-            SeasonChart decSeason = new SeasonChart(11, "December", this);
-            Chart chart = decSeason.getChart();
+            SeasonChart marchSeason = new SeasonChart(2, "March", this);
+            Chart chart = marchSeason.getChart();
 
             add(chart);
             setSizeFull();

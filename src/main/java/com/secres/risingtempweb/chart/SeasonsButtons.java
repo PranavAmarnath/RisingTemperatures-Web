@@ -1,7 +1,7 @@
-package com.secres.vaadinrisingtemp.chart;
+package com.secres.risingtempweb.chart;
 
-import com.secres.vaadinrisingtemp.Model;
-import com.secres.vaadinrisingtemp.TableView;
+import com.secres.risingtempweb.Model;
+import com.secres.risingtempweb.TableView;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;

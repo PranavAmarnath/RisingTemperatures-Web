@@ -1,4 +1,4 @@
-package com.secres.vaadinrisingtemp.chart;
+package com.secres.risingtempweb.chart;
 
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.Tag;

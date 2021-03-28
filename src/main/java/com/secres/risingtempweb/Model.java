@@ -1,4 +1,4 @@
-package com.secres.vaadinrisingtemp;
+package com.secres.risingtempweb;
 
 import com.opencsv.CSVReader;
 

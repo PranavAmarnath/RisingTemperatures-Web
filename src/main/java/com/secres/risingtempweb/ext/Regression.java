@@ -1,4 +1,4 @@
-package com.secres.vaadinrisingtemp.ext;
+package com.secres.risingtempweb.ext;
 
 /* ===========================================================
  * JFreeChart : a free chart library for the Java(tm) platform

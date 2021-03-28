@@ -1,8 +1,8 @@
-package com.secres.vaadinrisingtemp.chart;
+package com.secres.risingtempweb.chart;
 
-import com.secres.vaadinrisingtemp.MainView;
-import com.secres.vaadinrisingtemp.Model;
-import com.secres.vaadinrisingtemp.TableView;
+import com.secres.risingtempweb.MainView;
+import com.secres.risingtempweb.Model;
+import com.secres.risingtempweb.TableView;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;

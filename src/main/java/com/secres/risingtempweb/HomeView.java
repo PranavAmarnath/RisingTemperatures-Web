@@ -1,4 +1,4 @@
-package com.secres.vaadinrisingtemp;
+package com.secres.risingtempweb;
 
 import com.vaadin.flow.component.html.IFrame;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;

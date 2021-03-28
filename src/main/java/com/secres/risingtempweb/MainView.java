@@ -1,6 +1,6 @@
-package com.secres.vaadinrisingtemp;
+package com.secres.risingtempweb;
 
-import com.secres.vaadinrisingtemp.chart.WelcomeScreen;
+import com.secres.risingtempweb.chart.WelcomeScreen;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.button.Button;
