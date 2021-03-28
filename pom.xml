@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>16</java.version>
         <vaadin.version>14.5.1</vaadin.version>
     </properties>
 
@@ -160,6 +160,11 @@
             <artifactId>maven-failsafe-plugin</artifactId>
             <version>3.0.0-M5</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>1.9.1</version>
         </dependency>
     </dependencies>
 
