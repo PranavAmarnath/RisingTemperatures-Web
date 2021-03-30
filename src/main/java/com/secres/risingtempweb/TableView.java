@@ -13,8 +13,8 @@ import com.vaadin.flow.router.RouterLink;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-@Route("table")
-@PageTitle("Table Data")
+@Route(value = "table", layout = MainView.class)
+@PageTitle("Table | Rising Temperatures")
 public class TableView extends VerticalLayout {
 
     static Grid<GlobalTempDataRow> grid;

@@ -5,16 +5,12 @@ import com.secres.risingtempweb.Model;
 import com.secres.risingtempweb.TableView;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.*;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.RouterLink;
 
 import java.time.ZoneId;
 
-@Route("charts/avgtemp")
-@PageTitle("Avg Temperature (1850-2015)")
-public class AvgDoubleSplineChart extends VerticalLayout implements ChartDisplay {
+public class AvgDoubleSplineChart extends Div implements ChartDisplay {
 
     private Chart chart;
     private final Model globalModel = TableView.getModel();

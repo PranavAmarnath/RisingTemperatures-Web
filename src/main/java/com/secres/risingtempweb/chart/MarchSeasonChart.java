@@ -4,12 +4,8 @@ import com.secres.risingtempweb.Model;
 import com.secres.risingtempweb.TableView;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
-@Route("charts/seasons/march")
-@PageTitle("Land Temperature in March")
 public class MarchSeasonChart extends VerticalLayout {
 
     private final Model globalModel = TableView.getModel();

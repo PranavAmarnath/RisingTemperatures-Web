@@ -4,17 +4,13 @@ import com.secres.risingtempweb.Model;
 import com.secres.risingtempweb.TableView;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.*;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
 import java.util.HashMap;
 
-@Route("charts/gauge")
-@PageTitle("Temperature Gauge")
-public class GaugeChart extends VerticalLayout implements ChartDisplay {
+public class GaugeChart extends Div implements ChartDisplay {
 
     private final Model globalModel = TableView.getModel();
     private HashMap<String, Double> seriesModel;
@@ -77,8 +73,8 @@ public class GaugeChart extends VerticalLayout implements ChartDisplay {
         slider.setVisible(true);
 
         sliderLayout.addAndExpand(slider);
-        sliderLayout.setAlignItems(Alignment.CENTER);
-        sliderLayout.setJustifyContentMode(JustifyContentMode.CENTER);
+        //sliderLayout.setAlignItems(Alignment.CENTER);
+        //sliderLayout.setJustifyContentMode(JustifyContentMode.CENTER);
 
         add(chart, sliderLayout);
     }

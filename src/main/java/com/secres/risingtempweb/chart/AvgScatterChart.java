@@ -7,12 +7,8 @@ import com.secres.risingtempweb.ext.Regression;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
-@Route("charts/avgscatter")
-@PageTitle("Avg Temperature (1750-2015)")
 public class AvgScatterChart extends VerticalLayout implements ChartDisplay {
 
     private Chart chart;

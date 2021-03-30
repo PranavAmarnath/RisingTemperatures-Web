@@ -34,7 +34,7 @@ public class SeasonChart implements ChartDisplay {
         conf.getTitle().setText("Seasonal Land Temperature in " + season + " (1750-2015)");
         conf.getSubTitle().setText("Data from Berkeley Earth");
         chart.setTimeline(true);
-        chart.setHeight("2000px"); // filler for pack later on
+        //chart.setHeight("2000px"); // filler for pack later on
 
         conf.setExporting(true);
 
@@ -52,8 +52,6 @@ public class SeasonChart implements ChartDisplay {
     }
 
     private DataSeries createLandChart() {
-        Configuration conf = chart.getConfiguration();
-
         DataSeries seriesLand = new DataSeries("Land Temperature " + season);
         for(int i = start; i < globalModel.getRowList().size(); i+=12) {
             if(!(globalModel.getRowList().get(i).getLandAverageTemperature().isEmpty())) {

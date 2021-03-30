@@ -48,7 +48,8 @@
       "@vaadin/vaadin-material-styles": "1.3.2",
       "@vaadin/vaadin-rich-text-editor": "1.3.0",
       "@polymer/paper-slider": "3.0.1",
-      "@vaadin/vaadin-avatar": "1.0.4"
+      "@vaadin/vaadin-avatar": "1.0.4",
+      "@xpertsea/paper-slider": "3.0.0"
     },
     "devDependencies": {
       "webpack-babel-multi-target-plugin": "2.3.3",
@@ -63,7 +64,7 @@
       "ts-loader": "8.0.12",
       "typescript": "4.0.3"
     },
-    "hash": "e56e337facb230d138975ae20a39cf16fbf2e079c8298ca620fa7e0107855038"
+    "hash": "9892a91319fb6c879ae933744f7de98d2b1ef36113bffcac2f33c9ce31591b60"
   },
   "dependencies": {
     "@polymer/iron-icon": "3.0.1",
@@ -111,7 +112,8 @@
     "@vaadin/vaadin-upload": "4.4.1",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "lit-element": "2.4.0",
-    "@vaadin/vaadin-avatar": "1.0.4"
+    "@vaadin/vaadin-avatar": "1.0.4",
+    "@xpertsea/paper-slider": "3.0.0"
   },
   "devDependencies": {
     "webpack-babel-multi-target-plugin": "2.3.3",

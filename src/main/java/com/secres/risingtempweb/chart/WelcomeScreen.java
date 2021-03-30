@@ -1,5 +1,6 @@
 package com.secres.risingtempweb.chart;
 
+import com.secres.risingtempweb.MainView;
 import com.secres.risingtempweb.Model;
 import com.secres.risingtempweb.TableView;
 import com.vaadin.flow.component.Component;
@@ -14,17 +15,21 @@ import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.spring.annotation.UIScope;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-@Route("charts")
-@PageTitle("View Charts")
-public class WelcomeScreen extends VerticalLayout {
+@Route(value = "charts", layout = MainView.class)
+@PageTitle("Charts | Rising Temperatures")
+@UIScope
+public class WelcomeScreen extends VerticalLayout implements RouterLayout {
 
     private final Model globalModel = TableView.getModel();
-    private AppLayout appLayout = new AppLayout();
+    private AppLayout appLayout = getAppLayout();
 
     public WelcomeScreen() {
         SplitLayout splitLayout = new SplitLayout();
@@ -44,19 +49,15 @@ public class WelcomeScreen extends VerticalLayout {
         splitLayout.setSizeFull();
     }
 
-    private Accordion showNewScreen() {
-        Accordion accordion = new Accordion();
+    private Accordion[] showNewScreen() {
+        Accordion accordionAvg = new Accordion();
+        Accordion accordionSeasons = new Accordion();
 
         Tab avgSplineTab = new Tab("/avgtemp");
         AvgDoubleSplineChart avgSplineChart = new AvgDoubleSplineChart();
         Div avgSplinePage = new Div(avgSplineChart);
         avgSplinePage.setVisible(true);
         appLayout.setContent(avgSplinePage);
-
-        Tab seasonsButtonsTab = new Tab("/seasons");
-        SeasonsButtons seasonsButtons = new SeasonsButtons();
-        Div seasonsButtonsPage = new Div(seasonsButtons);
-        seasonsButtonsPage.setVisible(false);
 
         Tab gaugeTab = new Tab("/gauge");
         GaugeChart gaugeChart = new GaugeChart();
@@ -68,38 +69,68 @@ public class WelcomeScreen extends VerticalLayout {
         Div avgScatterPage = new Div(avgScatterChart);
         avgScatterPage.setVisible(false);
 
-        Map<Tab, Component> tabsToPages = new HashMap<>();
-        tabsToPages.put(avgSplineTab, avgSplinePage);
-        tabsToPages.put(seasonsButtonsTab, seasonsButtonsPage);
-        tabsToPages.put(gaugeTab, gaugePage);
-        tabsToPages.put(avgScatterTab, avgScatterPage);
+        Map<Tab, Div> chartsMap = new HashMap<>();
+        chartsMap.put(avgSplineTab, avgSplinePage);
+        chartsMap.put(gaugeTab, gaugePage);
+        chartsMap.put(avgScatterTab, avgScatterPage);
 
-        Tabs tabs = new Tabs(avgSplineTab, seasonsButtonsTab, gaugeTab, avgScatterTab);
-        tabs.setOrientation(Tabs.Orientation.VERTICAL);
-        tabs.addSelectedChangeListener(e -> {
-            tabsToPages.values().forEach(page -> page.setVisible(false));
-            Component selectedPage = tabsToPages.get(tabs.getSelectedTab());
+        Tabs tabsAvg = new Tabs();
+        tabsAvg.add(avgSplineTab);
+        tabsAvg.add(gaugeTab);
+        tabsAvg.add(avgScatterTab);
+        tabsAvg.setOrientation(Tabs.Orientation.VERTICAL);
+        accordionAvg.add("/avg", tabsAvg);
+
+        Tab marchTab = new Tab("/march");
+        MarchSeasonChart marchSeason = new MarchSeasonChart();
+        Div marchPage = new Div(marchSeason);
+        marchPage.setVisible(false);
+
+        Tab juneTab = new Tab("/june");
+        JuneSeasonChart juneSeason = new JuneSeasonChart();
+        Div junePage = new Div(juneSeason);
+        junePage.setVisible(false);
+
+        Tab septemberTab = new Tab("/september");
+        SeptemberSeasonChart septemberSeason = new SeptemberSeasonChart();
+        Div septemberPage = new Div(septemberSeason);
+        septemberPage.setVisible(false);
+
+        Tab decemberTab = new Tab("/december");
+        DecemberSeasonChart decemberSeason = new DecemberSeasonChart();
+        Div decemberPage = new Div(decemberSeason);
+        decemberPage.setVisible(false);
+
+        Map<Tab, Div> seasonsMap = new HashMap<>();
+        seasonsMap.put(marchTab, marchPage);
+        seasonsMap.put(juneTab, junePage);
+        seasonsMap.put(septemberTab, septemberPage);
+        seasonsMap.put(decemberTab, decemberPage);
+
+        Tabs tabsSeasons = new Tabs(marchTab, juneTab, septemberTab, decemberTab);
+        tabsSeasons.setOrientation(Tabs.Orientation.VERTICAL);
+
+        tabsAvg.addSelectedChangeListener(e -> {
+            chartsMap.values().forEach(page -> page.setVisible(false));
+            seasonsMap.values().forEach(page -> page.setVisible(false));
+            Component selectedPage = chartsMap.get(tabsAvg.getSelectedTab());
             selectedPage.setVisible(true);
             appLayout.setContent(selectedPage);
         });
-        accordion.add("/charts", tabs);
+        tabsSeasons.addSelectedChangeListener(e -> {
+            chartsMap.values().forEach(page -> page.setVisible(false));
+            seasonsMap.values().forEach(page -> page.setVisible(false));
+            Component selectedPage = seasonsMap.get(tabsSeasons.getSelectedTab());
+            selectedPage.setVisible(true);
+            appLayout.setContent(selectedPage);
+        });
+        accordionAvg.add("/seasons", tabsSeasons);
 
-        return accordion;
+        return new Accordion[]{accordionAvg, accordionSeasons};
     }
 
-    /*
-    private void oldScreen() {
-        if(globalModel == null) {
-            add(new RouterLink("Upload Table First", TableView.class));
-        }
-        else {
-            RouterLink avgSpline = new RouterLink("Average Temperature", AvgDoubleSplineChart.class);
-            RouterLink seasons = new RouterLink("Temperature by Month", SeasonsButtons.class);
-            RouterLink gauge = new RouterLink("Gauge Temperature", GaugeChart.class);
-
-            add(avgSpline, seasons, gauge);
-        }
+    public AppLayout getAppLayout() {
+        return Objects.requireNonNullElseGet(appLayout, AppLayout::new);
     }
-    */
 
 }
