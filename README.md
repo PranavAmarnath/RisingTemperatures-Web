@@ -1,6 +1,6 @@
 # RisingTemperatures-Web
 
-The web application can be found at https://risingtemp-web.herokuapp.com/.
+The web application can be found at https://risingtemp.herokuapp.com/.
 
 Rising Temperatures (Web) is a port of the [Rising Temperatures (Desktop)](https://github.com/PranavAmarnath/RisingTemperatures) project on the web with limited features.
 
